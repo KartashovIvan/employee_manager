@@ -1,0 +1,8 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet id="202411101752-create-test-employees" author="kartashov" context="test">
+        <sql>
+            INSERT INTO EMPLOYEES ("ID","NAME", "SURNAME", "PATRONYMIC") VALUES (0,'test_name','test_surname','test_patronymic');
+        </sql>
+    </changeSet>
+</databaseChangeLog>

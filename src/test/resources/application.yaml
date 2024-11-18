@@ -1,0 +1,12 @@
+server:
+  port: 8080
+
+spring:
+  liquibase:
+    contexts: test
+    enabled: true
+  datasource:
+    url: jdbc:firebirdsql://us-docker.hm.local:3050///firebird/data/em_test_db
+    username: ta_em
+    password: pass
+    driverClassName: org.firebirdsql.jdbc.FBDriver

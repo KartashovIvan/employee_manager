@@ -1,0 +1,33 @@
+server:
+  port: 8000
+
+spring:
+  cache:
+    type: caffeine
+    caffeine:
+      spec: expireAfterAccess=600s
+  liquibase:
+    enabled: true
+  jpa:
+    database-platform: org.hibernate.community.dialect.FirebirdDialect
+    properties:
+      hibernate:
+        show-sql: true
+        ddl-auto: none
+  datasource:
+    url: jdbc:firebirdsql://us-docker.hm.local:3050//firebird/data/em_db
+    username: ta_em
+    password: pass
+    driverClassName: org.firebirdsql.jdbc.FBDriver
+
+logging:
+  appender: FILE
+  file:
+      name: log/logs.log
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        descriptor:
+          sql:
+            BasicBinder: TRACE

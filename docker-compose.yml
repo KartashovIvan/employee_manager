@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  client-backend:
+    image: client:0.0.1
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    depends_on:
+      - service-db
+    environment:
+      - SERVER_PORT= 8000
+      - SPRING_DATASOURCE_URL=jdbc:firebirdsql://us-docker.hm.local:3050//firebird/data/em_db
+    volumes:
+      - /app/logs:/app/log
+
+  service-db:
+    image: jacobalberty/firebird
+    environment:
+      ISC_PASSWORD: secretpass
+      FIREBIRD_DATABASE: em_db
+      FIREBIRD_USER: ta_em
+      FIREBIRD_PASSWORD: pass
+    ports:
+      - "3050:3050"
+    volumes:
+      - /firebird:/firebird
+    restart: unless-stopped

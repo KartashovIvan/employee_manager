@@ -1,0 +1,9 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet id="202411101752-create-employees" author="kartashov">
+        <sql>
+            CREATE SEQUENCE employee_id_seq;
+            create table employees (id bigint primary key, name varchar(100) not null, surname varchar(100) not null, patronymic varchar(100), department_id bigint references departments(id));
+        </sql>
+    </changeSet>
+</databaseChangeLog>

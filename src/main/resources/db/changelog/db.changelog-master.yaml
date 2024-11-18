@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/202411111214-create-departments.xml
+  - include:
+      file: db/changelog/202411101752-create-employees.xml
+  - include:
+      file: db/changelog/202411101752-create-test-employees.xml
