@@ -7,6 +7,7 @@ spring:
     caffeine:
       spec: expireAfterAccess=600s
   liquibase:
+    contexts: prod
     enabled: true
   jpa:
     database-platform: org.hibernate.community.dialect.FirebirdDialect
